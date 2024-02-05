@@ -1,8 +1,15 @@
-# Created by yassine at 2/1/24
-Feature: Test main features in Target.com
+
+Feature: Target.com
 
 
-  Scenario: Verifies that “Your cart is empty” message is shown
+  Scenario Outline: User can search for a product on target
     Given Open Target main page
-    When Click on Cart icon
-    Then Verify “Your cart is empty” message is shown
+    When Search for <search_word>
+    Then Search results for <expected_result> are shown
+    Examples:
+    |search_word    |expected_result
+    |Shoes          |Shoes
+    |Gift           |Gift
+
+
+
